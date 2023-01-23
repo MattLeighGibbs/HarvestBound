@@ -3,7 +3,7 @@
 
 menu_x = x
 menu_y = y
-button_h = 32
+button_w = 150
 
 button[0] = "Bash";
 button[1] = "Items";
