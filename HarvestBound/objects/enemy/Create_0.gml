@@ -4,8 +4,8 @@
 // Inherit the parent event
 event_inherited();
 
-hp = 10
-atk = 7
-def = 5
-
-spells = []
+ hp = 10
+ atk = 5
+ def = 5
+ 
+ 

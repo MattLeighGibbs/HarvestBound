@@ -5,6 +5,7 @@
     {"id":{"name":"BattleTurnMenu","path":"objects/BattleTurnMenu/BattleTurnMenu.yy",},"order":0,},
     {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},"order":0,},
     {"id":{"name":"PlayableCharacter","path":"objects/PlayableCharacter/PlayableCharacter.yy",},"order":1,},
+    {"id":{"name":"Enemy","path":"objects/Enemy/Enemy.yy",},"order":3,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [

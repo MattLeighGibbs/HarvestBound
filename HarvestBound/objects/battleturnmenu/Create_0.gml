@@ -14,3 +14,9 @@ buttons = array_length_1d(button);
 
 menu_index = 0;
 last_selected = 0;
+
+// gather all enemies into enemy array
+for (var i = 0; i < instance_number(Enemy); ++i;)
+{
+    enemy[i] = instance_find(Enemy,i);
+}
