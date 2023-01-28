@@ -5,7 +5,7 @@ var i = 0;
 
 repeat (buttons) {
 	draw_set_font(Font1);
-	draw_set_halign(fa_left);
+
 	draw_set_color(c_ltgray);
 	
 	if (menu_index == i) {

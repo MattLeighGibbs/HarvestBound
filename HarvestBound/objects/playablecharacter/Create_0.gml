@@ -8,4 +8,6 @@ hp = 10
 atk = 7
 def = 5
 
+name = "The Hero"
+
 spells = []

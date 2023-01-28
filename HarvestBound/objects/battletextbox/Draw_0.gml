@@ -5,9 +5,11 @@
 
 draw_sprite(spr_battletextbox, 0, x, y)
 
-
 // draw text
 
-draw_text_ext(x + (boxWidth * .1), y + (sprite_get_height(BattleTextBox) * .1), text, stringHeight, boxWidth - (boxWidth * .1))
+drawx = x 
+drawy = y 
+
+draw_text_ext(drawx, drawy, text, stringHeight * 2, boxWidth)
 
 

@@ -4,8 +4,7 @@
 // Inherit the parent event
 event_inherited();
 
- hp = 10
- atk = 5
- def = 5
- 
- 
+hp = 10
+atk = 5
+def = 5 
+name = "YOU SHOULDNT SEE THIS"

@@ -5,16 +5,14 @@ hp = 0
 atk = 0
 def = 0
 items = []
+name = ""
 
 function Attack(attacker, attackee) 
 {
-	xy = 0
-	show_debug_message("Attackee HP: " + string(attackee.hp))
+	returnString = "" 
 	
 	resultant_damage = (attacker.atk - attackee.def)
 	modifier = resultant_damage * .25
-	
-	show_debug_message("Damage before modifier: " + string(resultant_damage))
 	
 	if (random(10) >= 5)
 	{
@@ -26,12 +24,18 @@ function Attack(attacker, attackee)
 	}
 	
 	resultant_damage = resultant_damage < 0 ? 0 : resultant_damage;
-	
-	show_debug_message("Damage after modifier: " + string(resultant_damage))
-	
+
+	returnString += attacker.name + " hit " + attackee.name + " for " + string(resultant_damage) + " damage"
+
 	attackee.hp -= resultant_damage
 	
-	show_debug_message("Attackee HP after being hit: " + string(attackee.hp))
+	if (attackee.hp <= 0)
+	{
+		instance_destroy(attackee)
+	}
+
+	return returnString
 }
+
 
 
