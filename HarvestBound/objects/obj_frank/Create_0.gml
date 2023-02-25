@@ -5,3 +5,8 @@
 event_inherited();
 
 name = "Frank"
+
+attackText = "brandished a knife!"
+deathMessage = "regained his senses!"
+
+atk = 7
