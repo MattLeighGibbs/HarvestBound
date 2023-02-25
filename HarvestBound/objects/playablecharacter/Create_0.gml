@@ -5,9 +5,11 @@
 event_inherited();
 
 hp = 10
-atk = 7
-def = 5
+atk = 20
+def = 0
 
 name = "The Hero"
 
 spells = []
+
+isPlayer = true
