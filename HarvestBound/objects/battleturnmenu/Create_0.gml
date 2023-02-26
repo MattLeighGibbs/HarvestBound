@@ -18,6 +18,8 @@ function Move(_moveType, _user, _usee = noone) constructor
 global.screenShakeX = 0
 global.screenShakeY = 0
 
+plyr = instance_find(PlayableCharacter,0)
+
 _textBox = instance_create_layer(room_width/6, 150, "Text", BattleTextBox)
 
 button[0] = "Bash";
@@ -57,9 +59,9 @@ menu_index = 0;
 moves = []
 
 // gather all enemies into enemy array
-for (var i = 0; i < instance_number(obj_frank); ++i;)
+for (var i = 0; i < instance_number(Enemy); ++i;)
 {
-    enemy[i] = instance_find(obj_frank,i);
+    enemy[i] = instance_find(Enemy,i);
 }
 
 
@@ -68,21 +70,25 @@ for (var i = 0; i < instance_number(obj_frank); ++i;)
 function Attack(attacker, attackee, isPlayer) 
 {
 	returnMessages = []
+	returnMessageIndx = 0
 	
 	resultant_damage = (attacker.atk - attackee.def)
 	modifier = choose(1,2,3,4,5,6,7,8,9,10)
 	
-	returnMessages[0] = new message_struct(attacker.name + " " + attacker.attackText)
+	returnMessages[returnMessageIndx] = new message_struct(attacker.name + " " + attacker.attackText)
 	
 	if (isPlayer)
 	{
-		returnMessages[0].sound = startattack_player
+		returnMessages[returnMessageIndx].sound = startattack_player
 	}
 	
 	else 
 	{
-		returnMessages[0].sound = startattack_enemy
+		returnMessages[returnMessageIndx].sound = startattack_enemy
 	}
+	
+	returnMessageIndx++
+	
 	ran = choose(1,2)
 	if (ran == 1)
 	{
@@ -97,33 +103,45 @@ function Attack(attacker, attackee, isPlayer)
 
 	if (resultant_damage > 0)
 	{
-		returnMessages[1] = new message_struct(attacker.name + " hit " + attackee.name + " for " + string(resultant_damage) + " damage")
+		returnMessages[returnMessageIndx] = new message_struct(attacker.name + " hit " + attackee.name + " for " + string(resultant_damage) + " damage")
+	
+		 		
+		global.shakeMod = resultant_damage/2
+		returnMessages[returnMessageIndx].screenShake = true
+	
+		attackee.hp -= resultant_damage
 	
 		if (isPlayer)
 		{
-			returnMessages[1].sound = playerattack
-			
-			attackee.hp -= resultant_damage
+			returnMessages[returnMessageIndx].sound = playerattack
 	
 			if (attackee.hp <= 0)
 			{
-				returnMessages[2] = new message_struct(attackee.DeathMessage(), enemydie)
+				returnMessageIndx++
+				returnMessages[returnMessageIndx] = new message_struct(attackee.DeathMessage(), enemydie)
 			}
 		}
 		else 
 		{   
 			alarm[0] = 50
-			//alarm[1] = 150
-			returnMessages[1].sound = enemyattack
-			returnMessages[1].screenShake = true
 			
-			global.shakeMod = resultant_damage/2
+			if (attackee.hp > 0)
+			{
+				returnMessages[returnMessageIndx].sound = enemyattack
+			}
+			else
+			{
+				returnMessages[returnMessageIndx].sound = wound
+			}
 		}
+
+		
+		returnMessageIndx++
 	}
 	
 	else 
 	{
-		returnMessages[1] = new message_struct("just missed!", attackmiss)
+		returnMessages[returnMessageIndx] = new message_struct("just missed!", attackmiss)
 	}
 
 	

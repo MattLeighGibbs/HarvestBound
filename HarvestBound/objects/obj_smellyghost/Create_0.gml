@@ -1,15 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
-
-// Inherit the parent event
 event_inherited();
 
-hp = 100
-atk = 20
-def = 10
+name = "Smelly Ghost"
 
-name = "The Hero"
+attackText = "wafted his stench!"
+deathMessage = "vanished into thin air!"
 
-spells = []
-
-isPlayer = true
+atk = 7

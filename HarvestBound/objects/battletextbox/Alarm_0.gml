@@ -3,12 +3,15 @@
 if (showText)
 {
 	if (messageIndex == array_length_1d(text) - 1)
-	{
-		showText = false
-		visible = false
-		messageIndex = 0
-		text = []
-		image_xscale = 1
+	{		
+		if (!stayOnScreen)
+		{
+			showText = false
+			messageIndex = 0
+			text = []
+			image_xscale = 1
+			visible = false
+		}
 	}
 	
 	else 

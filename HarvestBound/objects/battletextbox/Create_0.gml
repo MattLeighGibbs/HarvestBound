@@ -12,4 +12,7 @@ messageIndex = 0
 
 showText = false
 
+stayOnScreen = false
+
 BUFFER = 100
+
