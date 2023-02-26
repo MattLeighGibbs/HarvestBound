@@ -32,7 +32,6 @@ if (currentState == BattleState.ChooseEnemy)
 		audio_play_sound(cursorhoriz, 0, false)
 		enemy[enemyIndex].StopFlashing()
 	
-		plyr = instance_find(PlayableCharacter, 0);
 		moves[moveIndex++] = new Move(MoveType.Attack, plyr, enemy[enemyIndex])
 						
 		currentState = BattleState.Action
@@ -61,7 +60,6 @@ else if (currentState == BattleState.PlayerTurn && !_textBox.showText)
 	
 	if (keyboard_check_released(vk_enter))
 	{
-		plyr = instance_find(PlayableCharacter, 0);
 		
 		switch (menu_index) 
 		{
@@ -85,7 +83,6 @@ else if (currentState == BattleState.PlayerTurn && !_textBox.showText)
 
 else if (currentState == BattleState.Action && !_textBox.showText)
 {
-	plyr = instance_find(PlayableCharacter, 0);
 	for (i = 0; i < array_length_1d(enemy); i++)
 	{
 		moves[moveIndex] = new Move(MoveType.Attack, enemy[i], plyr)
@@ -103,7 +100,15 @@ else if (currentState == BattleState.Action && !_textBox.showText)
 		
 		if (move.moveType == MoveType.Attack)
 		{
-			res = Attack(move.user, move.usee, move.user.isPlayer)
+			if (move.user.isPlayer)
+			{
+				res = Attack(move.user, move.usee, move.user.isPlayer)
+			}
+			else 
+			{
+				res = Attack(move.user, plyr, false)
+			}
+			
 			if (array_length_1d(res) > 2)
 			{
 				array_push(_textBox.text, res[0], res[1], res[2])
@@ -118,11 +123,49 @@ else if (currentState == BattleState.Action && !_textBox.showText)
 			res = Run()
 			array_push(_textBox.text, res[0], res[1])
 		}
+		
+	}
+	
+	
+	battleOver = true
+	for (i = 0; i < array_length_1d(enemy); i++)
+	{
+		if (enemy[i].hp > 0)
+		{
+			battleOver = false
+			break;
+		}
+	}
+	
+	if (plyr.hp <= 0)
+	{
+		battleOver = true
+	}
+		
+	if (battleOver)
+	{
+		currentState = BattleState.Done
+		_textBox.stayOnScreen = true
+		
+		if (plyr.hp > 0)
+		{
+			array_push(_textBox.text,new message_struct("YOU WON!", stdBattleWon))
+		}
+		
+		else 
+		{
+			array_push(_textBox.text,new message_struct("YOU LOST", battleLost))
+		}
+	}
+		
+	else 
+	{
+		currentState = BattleState.PlayerTurn
 	}
 	
 	moves = []
 	moveIndex = 0
-	
-	currentState = BattleState.PlayerTurn
+
 }
+
 
