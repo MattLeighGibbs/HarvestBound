@@ -4,10 +4,14 @@
 // Inherit the parent event
 event_inherited();
 
+item = noone
+
 hp = 10
 atk = 5
 def = 5 
 name = "YOU SHOULDNT SEE THIS"
+
+expDrop = 0
 
 deathMessage = "was defeated!"
 
