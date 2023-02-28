@@ -115,6 +115,8 @@ function Attack(attacker, attackee, isPlayer)
 		{
 			returnMessages[returnMessageIndx].sound = playerattack
 	
+			attackee.StartShaking()
+	
 			if (attackee.hp <= 0)
 			{
 				returnMessageIndx++

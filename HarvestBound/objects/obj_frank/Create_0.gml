@@ -14,5 +14,5 @@ atk = 7
 
 expDrop = random_range(200,250)
 
-//item = new BreadRoll()
+item = new BreadRoll()
 

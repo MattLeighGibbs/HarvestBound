@@ -19,4 +19,3 @@ if (showText)
 		messageIndex++
 	}
 }
-

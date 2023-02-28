@@ -18,5 +18,6 @@ repeat (buttons) {
 	draw_set_color(c_ltgray);
 }
 draw_set_color(c_white)
-draw_text(300, room_height - 100, "Player HP: " + string(plyr.hp));
+draw_text(300, room_height - 200, "Player HP: " + string(plyr.hp) + "/" + string(plyr.maxhp));
 
+draw_text(300, room_height - 100, "Player items: " + string(plyr.items));

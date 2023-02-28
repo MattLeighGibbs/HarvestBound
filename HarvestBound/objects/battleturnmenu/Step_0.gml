@@ -150,6 +150,25 @@ else if (currentState == BattleState.Action && !_textBox.showText)
 		if (plyr.hp > 0)
 		{
 			array_push(_textBox.text,new message_struct("YOU WON!", stdBattleWon))
+			int totalXP = 0
+			for (i = 0; i < array_length_1d(enemy); i++)
+			{
+				if (enemy[i].item != noone)
+				{
+					array_push(_textBox.text,new message_struct("The enemy dropped a present!"))
+					array_push(_textBox.text,new message_struct("inside the present was a " + enemy[i].item.name + "!", present))
+					array_push(_textBox.text,new message_struct(plyr.name + " takes it", itemget))
+					array_push(plyr.items, enemy[i].item)
+				}
+				
+				totalXP += enemy.expDrop
+			}
+			
+			
+			// FOR WHEN THERE ARE MULTIPLE PARTY MEMBERS
+			//plyr.ApplyXP(totalXP / global.partySize
+			
+			plyr.ApplyXP(totalXP)
 		}
 		
 		else 
