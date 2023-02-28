@@ -18,6 +18,14 @@ deathMessage = "was defeated!"
 alreadyFading = false
 alreadyFlashing = false
 shouldFlash = false
+shouldShake = false
+alreadyShaking = false
+
+shakeX = 0
+shakeY = 0
+
+rootX = x
+rootY = y
 
 function DeathMessage()
 {
@@ -37,3 +45,15 @@ function StopFlashing()
 		image_alpha = 1
 	}
 }
+function StartShaking()
+{
+	shouldShake = true
+}
+function StopShaking()
+{
+	shouldShake = false
+	alreadyShaking = false
+	x = rootX 
+	y = rootY
+}
+

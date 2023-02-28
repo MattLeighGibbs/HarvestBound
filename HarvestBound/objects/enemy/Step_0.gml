@@ -12,3 +12,14 @@ if (hp <= 0 && !alreadyFading)
 	alarm[1] = 210
 	alreadyFading = true
 }
+
+if (shouldShake)
+{
+	if (!alreadyShaking && alarm[3] <= 0)
+	{
+		alarm[3] = 135
+		alarm[4] = 100
+		alreadyShaking = true
+	}
+	
+}

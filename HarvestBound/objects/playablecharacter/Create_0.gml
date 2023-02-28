@@ -5,7 +5,8 @@
 event_inherited();
 
 hp = 100
-atk = 20
+maxhp = 100
+atk = 1
 def = 10
 
 name = "The Hero"
