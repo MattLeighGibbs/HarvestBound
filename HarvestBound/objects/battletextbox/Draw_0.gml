@@ -26,8 +26,14 @@ if (showText)
 	draw_sprite_ext(spr_battletextbox, 0,x + shakeX,y + shakeY,image_xscale,image_yscale,image_angle,image_blend,image_alpha)
 	draw_text_ext(drawx + shakeX + BUFFER, drawy + shakeY + BUFFER, text[messageIndex].text, stringHeight * 2, boxWidth - BUFFER/2)
 	
+	
 	if (text[messageIndex].sound != noone)
 	{
+		if (text[messageIndex].stopAudio) 
+		{
+			audio_stop_all()
+		}
+		
 		audio_play_sound(text[messageIndex].sound, 1, false)
 		text[messageIndex].sound = noone
 	}

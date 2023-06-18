@@ -58,3 +58,10 @@ function ConsumableBase(_name,
 
 function BreadRoll() : ConsumableBase("Bread Roll", 10, 0, 0, 0, 0, 0) constructor 
 {}
+
+function roomgoto(_newRoom)
+{
+	room_goto(_newRoom)
+}
+
+global.enemy = [] 

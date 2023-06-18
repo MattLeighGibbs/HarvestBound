@@ -7,9 +7,8 @@ def = 0
 maxhp = 0
 maxpp = 0
 items = []
-name = ""
 attackText = "swung for the fences!"
 isPlayer = false
 
-
-
+overworld_sprite = noone
+current_sprite = noone 
