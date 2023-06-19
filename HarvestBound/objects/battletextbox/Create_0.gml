@@ -16,3 +16,4 @@ stayOnScreen = false
 
 BUFFER = 100
 
+depth = 1

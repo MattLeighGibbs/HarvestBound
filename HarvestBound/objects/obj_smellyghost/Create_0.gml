@@ -8,3 +8,7 @@ attackText = "wafted his stench!"
 deathMessage = "vanished into thin air!"
 
 atk = 7
+
+overworld_sprite = spr_ghost
+battle_sprite = spr_smellyghost
+current_sprite = spr_ghost

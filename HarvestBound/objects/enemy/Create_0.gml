@@ -21,11 +21,27 @@ shouldFlash = false
 shouldShake = false
 alreadyShaking = false
 
+inBattle = false
+
 shakeX = 0
 shakeY = 0
 
 rootX = x
 rootY = y
+
+origspd = 1
+spd = 1
+
+battle_sprite = noone 
+overworld_sprite = noone
+dead_sprite = noone 
+
+battle_on_touch = false
+
+persistent = true
+
+lastx = x
+lasty = y
 
 function DeathMessage()
 {

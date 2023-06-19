@@ -8,10 +8,13 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "baseclasses",
+    "path": "folders/Objects/baseclasses.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "InteractableBase",
+    "path": "objects/InteractableBase/InteractableBase.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

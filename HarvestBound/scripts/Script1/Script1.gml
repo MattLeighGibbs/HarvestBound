@@ -1,5 +1,8 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+
+global.globaltimer = 0
+
 function ItemBase() constructor
 {
 	name = "NULL"
@@ -58,3 +61,10 @@ function ConsumableBase(_name,
 
 function BreadRoll() : ConsumableBase("Bread Roll", 10, 0, 0, 0, 0, 0) constructor 
 {}
+
+function roomgoto(_newRoom)
+{
+	room_goto(_newRoom)
+}
+
+global.enemy = [] 
