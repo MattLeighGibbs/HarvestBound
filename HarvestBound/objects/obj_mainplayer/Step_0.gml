@@ -21,24 +21,45 @@ if (!instance_exists(obj_blockable))
 
 	currentstopwatch += 1 
 
-	if (keyboard_check(vk_enter))
+	if (keyboard_check(vk_enter) && global.globaltimer <= 0)
 	{
+
 		if (!audio_is_playing(sound_dogbark))
 		{
-			audio_play_sound(sound_dogbark, 1, false)
+		audio_play_sound(sound_dogbark, 1, false)
 		}
 	
 		if ((place_meeting(x + 5, y, obj_cow) and current_sprite == spr_king_right)
 			or (place_meeting(x - 5, y, obj_cow) and current_sprite == spr_king_left)
 			or (place_meeting(x, y + 5, obj_cow) and current_sprite == spr_king_down)
 			or (place_meeting(x, y - 5, obj_cow) and current_sprite == spr_king_up))
+			and (!instance_exists(object_textbox))
 		{
+			with(instance_create_depth(0, 0, -9999, object_textbox))
+			{
+				scr_game_text("cow")
+			}
+			
 			if (!audio_is_playing(moo))
 			{
 				audio_play_sound(moo, 1, false)
 			}
 		}
-	}	
+			
+		if ((place_meeting(x + 5, y, Object17) and current_sprite == spr_king_right)
+			or (place_meeting(x - 5, y, Object17) and current_sprite == spr_king_left)
+			or (place_meeting(x, y + 5, Object17) and current_sprite == spr_king_down)
+			or (place_meeting(x, y - 5, Object17) and current_sprite == spr_king_up))
+		{
+			with(instance_create_depth(0, 0, -9999, object_textbox))
+			{
+				scr_game_text("frank")
+			}
+		
+		}
+	}
+		
+	
 
 
 	if (keyboard_check(ord("W")))

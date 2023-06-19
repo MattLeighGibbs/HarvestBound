@@ -4,6 +4,10 @@
 
 textbox_width = 150
 textbox_height = 64
+
+frame_width = 64
+frame_height = 64
+
 border = 8
 line_sep = 12
 line_width = textbox_width - border*2
@@ -22,6 +26,9 @@ text[3] = " a scruffy dog! Are you living over there with mary and jim ?"
 text[4] = "You sure Are you living over there with mary and jim ?"
 
 text_length[0] = string_length(text[0])
+
+speaker_sprite[page_number] = noone
+speaker_side[page_number] = 1 
 
 draw_char = 0
 text_speed = 1

@@ -12,15 +12,25 @@ if (!setup)
 	draw_set_valign(fa_top)
 	draw_set_halign(fa_left)
 	
-	page_number = array_length(text)
-	
 	for (var p = 0; p < page_number; p++)
 	{
 		text_length[p] = string_length(text[p])
 		
+		//character on left 
+		text_x_offset[p] = 80
+		portrait_x_offset[p] = 8
 		
-		// this is for no character , centering textbox 
-		text_x_offset[p] = 44
+		if (speaker_side[p] == -1)
+		{
+			text_x_offset[p] = 8
+			portrait_x_offset[p] = 170
+		}
+		
+		if (speaker_sprite[p] == noone)
+		{
+			text_x_offset[p] = 44
+		}
+
 	}
 }
 
@@ -46,6 +56,7 @@ if (accept_key)
 		}
 		else 
 		{
+			global.globaltimer = 25
 			instance_destroy()
 		}
 	}
@@ -58,11 +69,19 @@ if (accept_key)
 txtb_spr_w = sprite_get_width(spr_textbox)
 txtb_spr_h = sprite_get_height(spr_textbox)
 
-draw_sprite_ext(spr_textbox, 0, textbox_x + text_x_offset[page], textbox_y, textbox_width/txtb_spr_w, textbox_height/txtb_spr_h, 0, c_white, 1) 
+draw_sprite_ext(spr_textbox, 0, frame_width/sprite_get_width(spr_frame) + textbox_x + text_x_offset[page], textbox_y, textbox_width/txtb_spr_w, textbox_height/txtb_spr_h, 0, c_white, 1) 
 
 // draw the text 
 
-draw_set_font (Font2) 
+draw_set_font (Font3) 
 
 var _drawtext = string_copy(text[page], 1, draw_char)
-draw_text_ext(textbox_x + text_x_offset[page] + border, textbox_y + border, _drawtext, line_sep, line_width)
+draw_text_ext(frame_width/sprite_get_width(spr_frame) + textbox_x + text_x_offset[page] + border, textbox_y + border, _drawtext, line_sep, line_width)
+
+
+if (speaker_sprite[page] != noone)
+{
+	var _speaker_x = textbox_x + portrait_x_offset[page]
+	draw_sprite_ext(spr_frame, 0, _speaker_x, textbox_y,  frame_width/sprite_get_width(spr_frame),  frame_height/sprite_get_height(spr_frame), 0, c_white, 1) 
+	draw_sprite_ext(speaker_sprite[page], 0, _speaker_x, textbox_y,  frame_width/sprite_get_width(spr_mainchar_frame),  frame_height/sprite_get_height(spr_mainchar_frame), 0, c_white, 1) 
+}
