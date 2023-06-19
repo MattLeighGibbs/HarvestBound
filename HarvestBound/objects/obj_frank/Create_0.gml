@@ -12,7 +12,13 @@ deathMessage = "regained his senses!"
 
 atk = 7
 
-expDrop = random_range(200,250)
+expDrop = 10
+
+hp = 1
+def = 0
 
 item = new BreadRoll()
 
+overworld_sprite = spr_frank_overworld
+battle_sprite = spr_frank
+current_sprite = spr_frank_overworld

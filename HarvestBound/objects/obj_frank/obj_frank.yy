@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "enemies",
+    "path": "folders/Objects/enemies.yy",
   },
   "parentObjectId": {
     "name": "Enemy",
@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_frank",
-    "path": "sprites/spr_frank/spr_frank.yy",
+    "name": "spr_frank_overworld",
+    "path": "sprites/spr_frank_overworld/spr_frank_overworld.yy",
   },
   "spriteMaskId": null,
   "visible": true,
