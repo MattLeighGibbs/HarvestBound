@@ -68,3 +68,6 @@ function roomgoto(_newRoom)
 }
 
 global.enemy = [] 
+global.lastx = noone
+global.lasty = noone
+global.data = noone

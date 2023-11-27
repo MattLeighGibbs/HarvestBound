@@ -2,5 +2,5 @@
 // You can write your code in this editor
 
 text = []
-name = ""
+name = "frank"
 current_sprite = noone

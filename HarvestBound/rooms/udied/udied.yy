@@ -2,7 +2,7 @@
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
   "name": "udied",
-  "creationCodeFile": "${project_dir}/rooms/udied/RoomCreationCode.gml",
+  "creationCodeFile": "rooms/udied/RoomCreationCode.gml",
   "inheritCode": false,
   "inheritCreationOrder": false,
   "inheritLayers": false,

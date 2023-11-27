@@ -5,7 +5,7 @@ function scr_game_text(textID){
 	{
 		case "cow":
 			scr_text("heya cow!", "main", 1)
-			scr_text("heya dog!", "cow", -1)
+			scr_text("heya dog!", "cow", -1, moo)
 			scr_text("chew any good cud lately?", "main", 1)
 			scr_text("Now that you mention it...", "cow", -1)
 			scr_text("... nevermind", "main", 1)
@@ -23,7 +23,7 @@ function scr_game_text(textID){
 			scr_text("just directTV", "cow", -1)
 			scr_text("this IS hell! :(", "main", 1)
 			break
-		case "frank":
+		case "Frank":
 			scr_text("Great googly moogly!", "frank", -1)
 			break
 		
