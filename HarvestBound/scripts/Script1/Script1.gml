@@ -57,12 +57,6 @@ function ConsumableBase(_name,
 			array_push(returnMessages, new message_struct(usee.name + "'s defense was increased by " + string(defBuf)))
 		}
 	}	
-	
-	function Bite(hero, enemy, dir)
-	{
-		enemy.hp -= hero.GetAttackDamage()
-		DoKnockback(enemy,dir) 
-	}
 }
 
 function BreadRoll() : ConsumableBase("Bread Roll", 10, 0, 0, 0, 0, 0) constructor 
@@ -72,31 +66,5 @@ function roomgoto(_newRoom)
 {
 	room_goto(_newRoom)
 }
-
-function DoKnockback(entity, dir) 
-{
-	switch (dir)
-	{
-		case Direction.Up:
-			antity.y -= lerp(25, 0, .5)
-		case Direction.Down:
-			antity.y += lerp(25, 0, .5)
-		case Direction.Left:
-			antity.y -= lerp(25, 0, .5)
-		case Direction.Right:
-			antity.y += lerp(25, 0, .5)
-	}
-}
-
-
-enum Direction
-{
-	Up,
-	Down,
-	Left,
-	Right
-}
-
-
 
 global.enemy = [] 

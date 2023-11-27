@@ -45,29 +45,7 @@ if (!instance_exists(obj_blockable))
 				audio_play_sound(moo, 1, false)
 			}
 		}
-		
-		if ((place_meeting(x + 5, y, Enemy) and current_sprite == spr_king_right)
-			or (place_meeting(x - 5, y, Enemy) and current_sprite == spr_king_left)
-			or (place_meeting(x, y + 5, Enemy) and current_sprite == spr_king_down)
-			or (place_meeting(x, y - 5, Enemy) and current_sprite == spr_king_up))
-		{
 			
-		}
-		
-		if (place_meeting(x + 5, y, Enemy) and current_sprite == spr_king_right)
-		{
-			
-		}
-		
-		if (place_meeting(x - 5, y, Enemy) and current_sprite == spr_king_left)
-		{
-		}
-			
-		if(place_meeting(x, y + 5, Enemy) and current_sprite == spr_king_down)
-		{
-		}
-		if(place_meeting(x, y - 5, Enemy) and current_sprite == spr_king_up)
-		 
 		if ((place_meeting(x + 5, y, Object17) and current_sprite == spr_king_right)
 			or (place_meeting(x - 5, y, Object17) and current_sprite == spr_king_left)
 			or (place_meeting(x, y + 5, Object17) and current_sprite == spr_king_down)
