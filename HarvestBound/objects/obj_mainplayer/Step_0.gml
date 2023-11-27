@@ -1,5 +1,4 @@
 
-
 movex = keyboard_check(ord("D")) - keyboard_check(ord("A"))
 movey = keyboard_check(ord("S")) - keyboard_check(ord("W"))
 
@@ -26,24 +25,27 @@ if (!instance_exists(obj_blockable))
 
 		if (!audio_is_playing(sound_dogbark))
 		{
-		audio_play_sound(sound_dogbark, 1, false)
+			audio_play_sound(sound_dogbark, 1, false)
 		}
 	
-		if ((place_meeting(x + 5, y, obj_cow) and current_sprite == spr_king_right)
-			or (place_meeting(x - 5, y, obj_cow) and current_sprite == spr_king_left)
-			or (place_meeting(x, y + 5, obj_cow) and current_sprite == spr_king_down)
-			or (place_meeting(x, y - 5, obj_cow) and current_sprite == spr_king_up))
+		if ((place_meeting(x + 5, y, InteractableBase) and current_sprite == spr_king_right)
+			or (place_meeting(x - 5, y, InteractableBase) and current_sprite == spr_king_left)
+			or (place_meeting(x, y + 5, InteractableBase) and current_sprite == spr_king_down)
+			or (place_meeting(x, y - 5, InteractableBase) and current_sprite == spr_king_up))
 			and (!instance_exists(object_textbox))
 		{
-			with(instance_create_depth(0, 0, -9999, object_textbox))
+			var otherid = GetClosestGuyImPointingAt()
+			if (otherid != noone)
 			{
-				scr_game_text("cow")
+				with(instance_create_depth(0, 0, -9999, object_textbox))
+				scr_game_text(otherid.name)
+							
+				if (!audio_is_playing(moo))
+				{
+					audio_play_sound(moo, 1, false)
+				}
 			}
-			
-			if (!audio_is_playing(moo))
-			{
-				audio_play_sound(moo, 1, false)
-			}
+
 		}
 			
 		if ((place_meeting(x + 5, y, Object17) and current_sprite == spr_king_right)
@@ -58,8 +60,6 @@ if (!instance_exists(obj_blockable))
 		
 		}
 	}
-		
-	
 
 
 	if (keyboard_check(ord("W")))
@@ -83,7 +83,7 @@ if (!instance_exists(obj_blockable))
 		current_sprite = spr_king_snooz
 	}
 
-	if keyboard_check_pressed(vk_anykey)
+	if keyboard_check(vk_anykey)
 	{
 		currentstopwatch = 0
 	}
@@ -92,6 +92,5 @@ if (!instance_exists(obj_blockable))
 	{
 		current_sprite = spr_king_snooz
 	}
-
 }
 

@@ -20,10 +20,17 @@ function scr_text(_text){
 			
 		}
 	}
+
 	
 	if (argument_count > 2) 
 	{
 		speaker_side[page_number] = argument[2]
+	}
+	
+		
+	if (argument_count > 3)
+	{
+		audio_play_sound(argument[3], 1, false)
 	}
 	
 	page_number++

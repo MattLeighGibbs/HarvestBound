@@ -6,7 +6,7 @@ if (instance_exists(obj_battle))
 	speed = 0
 }
 
-if (distance_to_object(obj_mainplayer) <= 150) {    //prevents Bowser from running across the map to get you
+if (distance_to_object(obj_mainplayer) <= 50) {    //prevents Bowser from running across the map to get you
       //if (collision_line(x,y,obj_mainplayer.x,obj_mainplayer.y,obj_collision,true,true) = noone) {
            direction=point_direction(x,y,obj_mainplayer.x,obj_mainplayer.y);
 		   move_towards_point(obj_mainplayer.x, obj_mainplayer.y, spd)

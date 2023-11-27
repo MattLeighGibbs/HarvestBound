@@ -31,7 +31,13 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
-  "spriteMaskId": null,
+  "spriteId": {
+    "name": "spr_cow",
+    "path": "sprites/spr_cow/spr_cow.yy",
+  },
+  "spriteMaskId": {
+    "name": "spr_cow",
+    "path": "sprites/spr_cow/spr_cow.yy",
+  },
   "visible": true,
 }
